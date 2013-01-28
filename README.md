@@ -32,6 +32,8 @@ Milestones
   * core feature set implemented and working
 7. Special features
   * functionality to automatically handle product combinations/sales/special offers
+  * ability for accounts to modify their databases
+  * security stressed throughout
 8. Draft documentation
   * technical and user documentation for both the client and server
 9. Final code and documentation
