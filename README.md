@@ -13,6 +13,7 @@ Milestones
 
 1. Architecture diagram and external libraries/programs
   * JavaScript and jQuery
+  * NodeJS
   * MongoDB
   * HTML/CSS
 2. Framework demo
