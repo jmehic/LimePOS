@@ -12,19 +12,15 @@ Milestones
 ----------
 
 1. Architecture diagram and external libraries/programs
-  * JavaScript and jQuery
-  * NodeJS
-  * MongoDB
-  * HTML/CSS
+  * high-level architecture diagram showing client and server layout
+  * use of modern web technologies including NodeJS, MongoDB, JavaScript, jQuery, and HTML/CSS
 2. Framework demo
-  * basic working frontend site
-  * basic working server serving requests
-  * basic communication between site and server
-3. Working backend server
-  * robust server with minimal downtime
-  * high concurrency
-4. Working frontend client interface
-  * clean, easy to use interface so clients can access service
+  * basic foundation of client site
+  * basic foundational Node server processing requests
+3. Working database with connection to server
+  * MongoDB set up to track users, inventory and transactions
+4. Frontend client interface to access server
+  * clean, easy to use interface so clients can use the service
 5. Client/server communication
   * robust communication between client and server
   * minimal service interruptions
@@ -36,5 +32,6 @@ Milestones
   * security stressed throughout
 8. Draft documentation
   * technical and user documentation for both the client and server
+  * help documentation to show how the service is used
 9. Final code and documentation
   * finalize code and documentation for submission
