@@ -10,7 +10,7 @@ http.createServer(function(request, response){
 }).listen(8080);
 
 function addUser(name, email, password){
-    db.users.save({username: name, user_email: email, user_password: password}, function(err, saved){
+    db.users.insert({username: name, user_email: email, user_password: password}, function(err, saved){
         if( err || !saved )
             console.log("User not saved");
         else
