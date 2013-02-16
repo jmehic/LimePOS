@@ -1,19 +1,31 @@
 @import url("http://fonts.googleapis.com/css?family=Roboto+Condensed");
 @import url("http://fonts.googleapis.com/css?family=Junge");
 
+html {
+    height: 100%;
+}
 
 body {
+    height: 100%;
     line-height: 1;
     color: #000;
     background-image: url('../images/dark_fish_skin.png');
     background-repeat: repeat;
 }
 
+body > .container {
+    height: auto;
+    min-height: 100%;
+}
+
+p {
+    line-height: 1.8;
+}
+
 .header {
     font-family: 'Junge';
-    padding: 10px;
     color: #fff;
-    font-size: 30px;
+    font-size: 15px;
     text-align: center;
 
     background-color: #66ff33;
@@ -21,13 +33,14 @@ body {
 }
 
 .container {
-    width: 500px;
+    height: 100%;
+    width: 100%;
     margin: 50px auto;
     overflow: hidden;
 }
 
 .main-content {
-    float: left;
+    float: none;
     width: 500px;
 }
 
@@ -35,18 +48,15 @@ body {
     font-family: 'Roboto';
     font-size: 20px;
     color: #fff;
-    margin-bottom: 20px;
 }
 
-p {
-    line-height: 1.8;
-}
-
-.footer p {
-    width: 500px;
-    margin: 50px auto;
-    border-top: 1px dotted #ccc;
-    padding-top: 5px;
-    font-size: 13px;
+.footer {
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
     color: #fff;
+    border-top: 1px dotted #ccc;
+    text-align: center;
 }
