@@ -9,16 +9,7 @@ body {
     background-repeat: repeat;
 }
 
-ol,
-ul {
-    list-style: none;
-}
-
-a img {
-    border: none;
-}
-
-header {
+.header {
     font-family: 'Junge';
     padding: 10px;
     color: #fff;
@@ -51,7 +42,7 @@ p {
     line-height: 1.8;
 }
 
-footer {
+.footer p {
     width: 500px;
     margin: 50px auto;
     border-top: 1px dotted #ccc;
