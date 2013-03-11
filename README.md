@@ -11,8 +11,6 @@ Our service will be superior to localized solutions such as Lemon POS because ev
 Milestones
 ----------
 
-(delivery dates are tentative pending discussion with/approval from Josh)
-
 1. Architecture diagram and external libraries/programs (delivery: Feb 8)
   * high-level architecture diagram showing client and server layout
   * use of modern web technologies including NodeJS, MongoDB, JavaScript, jQuery, and HTML/CSS
