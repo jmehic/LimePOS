@@ -1,50 +1,23 @@
 
 /**
- * Module dependencies.
- */
+* Module dependencies.
+*/
 
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path')
-  , db_url = "coconut"
-  , collections = ["users"]
-  , db = require('mongojs').connect(db_url, collections);
-
-  //, db = require('mongodb').db
-  //, db_connection = require('mongodb').connection
-  //, db_server = require('mongodb').server;
-
-//var host = process.env['MONGO_NODE_DRIVER_HOST'] !== null ?
-//            process.env['MONGO_NODE_DRIVER_HOST'] : 'localhost';
-//var port = process.env['MONGO_NODE_DRIVER_HOST'] !== null ?
-//            process.env['MONGO_NODE_DRIVER_HOST'] : db_connection.DEFAULT_PORT;
+  , path = require('path');
+  //, db_url = "coconut"
+  //, collections = ["users"]
+  //, db = require('mongojs').connect(db_url, collections);
 
 var app = express();
-
-//function runQuery( db, query, nextFn ){
-  //  db.open( function( err, db ){
-    //    db.collection( myCollection, function( err, collection ){
-      //      collection.find( query, function( err, cursor ){
-        //        cursor.toArray( function( err, docs ){
-          //          console.log("Found " + docs.length + " documents");
-            //        var queryResults = [];
-              //      for( var i = 0; i < docs.length; i ++ ){
-                //        queryResults[queryResults.length] = docs[i];
-                  //  }
-                    //db.close();
-                    //nextFn(queryResults);
-                //});
-            //});
-        //});
-    //});
-//};
+var db = require('./public/javascripts/database.js');
 
 app.configure(function(){
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
-    //app.engine('html', require('ejs').renderFile);
     app.set('view engine', 'ejs');
     app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
     app.use(express.logger('dev'));
@@ -59,16 +32,18 @@ app.configure('development', function(){
 });
 
 app.get('/users', user.list);
+
 app.get('/database', function( req, res ){
     res.render('database.ejs', { title: 'Lime - Database Demo'});
 });
+
 app.post('/database', function( req, res ){
     console.log("posted");
     console.log(JSON.stringify(req.body));
-    db.users.insert(req.body);
-    //res.render('database.ejs', { title: 'Lime - Database Demo'});
+    db.insertUser(req.body);
     res.redirect('/database');
 });
+
 app.get('/', routes.index);
 
 http.createServer(app).listen(app.get('port'), function(){
