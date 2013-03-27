@@ -5,6 +5,7 @@
     <title>Lime - Login</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script type="javascript" src="/javascripts/jquery-1.9.1.js"></script>
 </head>
 
 <body>
@@ -16,6 +17,7 @@
                     <a class="brand" href="#">Lime</a>
                     <ul class="nav">
                     <li><a href="/">Home</a></li>
+                    <li><a href="/create">Create Account</a></li>
                     <li><a href="/login">Log In</a></li>
                     <li><a href="#">About Lime</a></li>
                     <li><a href="/database">Database Demo</a></li>
@@ -27,24 +29,11 @@
         <div class="body">
             <form action="/login" method="post">
             <p>Log in to your account
-                <!--<form action="/login" method="post">-->
-                    <label for="POST-username">Username:</label>
-                    <input id="POST-username" type="text" name="username"></input>
-                    <label for="POST-password">Password:</label>
-                    <input id="POST-password" type="password" name="password"></input>
-                    <input type="submit" value="Log in">
-                <!--</form>-->
-            </p>
-
-            <p>
-                Don't have an account? Create one now!
-                <!--<form action="/create" method="post">-->
-                    <label for="POST-newuser">Enter a username:</label>
-                    <input id="POST-newuser" type="text" name="newuser"></input>
-                    <label for="POST-newpass">Enter a password:</label>
-                    <input id="POST-newpass" type="password" name="newpass"></input>
-                    <input type="submit" value="Create account">
-                <!--</form>-->
+                <label for="username">Username:</label>
+                <input id="username" type="text" name="username"></input>
+                <label for="password">Password:</label>
+                <input id="password" type="password" name="password"></input>
+                <input type="submit" value="Log in"/>
             </p>
             </form>
         </div>

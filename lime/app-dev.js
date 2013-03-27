@@ -65,7 +65,7 @@ app.configure('development', function(){
 app.get('/', function(req, res, next){
 	//redirect to user page if logged in
 	if(req.session.username){
-		res.redirect("/users");
+		res.redirect("/account");
 	}else{
 		next();
 	}
@@ -93,9 +93,18 @@ app.get('/login', function( req, res ){
 	res.render('login.ejs', { title: 'Lime - Login' });
 });
 
+app.get('/create', function( req, res ){
+	res.render('create.ejs', { title: 'Lime - Create an account' });
+});
+
+app.get('/account', function( req, res ){
+	res.render('account.ejs', { title: 'Lime - Your Account' });
+});
+
 app.post("/create", function(req, res){
-	var username = req.body.newuser;
-	var password = req.body.newpass;
+	var username = req.body.username;
+	console.log(username);
+	var password = req.body.password;
 	User.find({username: username}, function(err, users){
 	  	//check if the user already exists
 	 	if(users.length!=0){
@@ -114,7 +123,8 @@ app.post("/create", function(req, res){
 		
 		//save() is a magic function from mongoose that saves this user to our DB
 		newUser.save(function(err, newUser){
-			res.send("successfully registered user: "+newUser.username);
+			//res.send("successfully created user: "+newUser.username);
+			res.redirect('/account');
 		});    
 	  });
 	  });   
@@ -137,7 +147,7 @@ app.post("/login", function(req, res){
 		bcrypt.compare(password, user.password, function(err, authenticated){
 			if(authenticated){
 				req.session.username = user.username;
-				res.redirect("/users");
+				res.redirect("/account");
 			}else{
 				res.redirect("/?error=invalid username or password");   
 			}
