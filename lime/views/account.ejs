@@ -9,6 +9,7 @@
     <script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
     <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/account.js"></script>
 </head>
 
 <body>
@@ -29,7 +30,7 @@
         </div>
 
         <div class="body">
-            <p>Welcome to your account</p>
+            <p id="welmsg">Welcome to your account</p>
             <!--<form action="/logout" method="post">
                 <input type="submit" value="Log out"/>
             </form>-->
@@ -40,12 +41,34 @@
                     <span class="caret"</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Inventory</a></li>
-                    <li><a href="#">Today's Stats</a></li>
-                    <li><a href="#">Generate Report</a></li>
-                    <li><a href="#">Edit Inventory</a></li>
+                    <li><a id="inv" href="#">Inventory</a></li>
+                    <li><a id="tds" href="#">Today's Stats</a></li>
+                    <li><a id="gen" href="#">Generate Report</a></li>
+                    <li><a id="edit" href="#">Edit Inventory</a></li>
                     <li><a href="/logout">Log Out</a></li>
                 </ul>
+            </div>
+
+            <div class="inventory">
+                <h3 class="inv-header">Inventory</h3>
+                <div class="inventory-item"></div>
+            </div>
+
+            <div class="stats">
+                <h3>Daily Statistics</h3>
+                <h4>Item Sold</h4>
+                <h4>Revenue</h4>
+                <h4>Change Given</h4>
+                <h4>Total Profit</h4>
+            </div>
+
+            <div class="report">
+                <h3>Report of Daily Activity</h3>
+            </div>
+
+            <div class="edit-inventory">
+                <h3 class="edit-header">Edit Your Inventory</h3>
+                <div class="inventory-item"></div>
             </div>
         </div>
     </div>

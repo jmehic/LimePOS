@@ -63,9 +63,53 @@ label {
 .inventory {
     border-radius: 25px 10px / 10px 25px;
     border: 1px solid #fff;
-    height: 300px;
-    width: 500px;
+    height: 400px;
+    width: 800px;
     position: fixed;
-    margin-left: 150px;
-    margin-top: -100px;
+    margin-left: 200px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.inventory-item {
+    border-radius: 25px;
+    border: 1px solid #fff;
+    height: 25px;
+    width: 780px;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.stats {
+    position: fixed;
+    margin-left: 200px;
+    margin-top: -25px;
+    color: #fff;
+}
+
+.report {
+    position: fixed;
+    margin-left: 200px;
+    margin-top: -25px;
+    color: #fff;
+}
+
+.edit-inventory {
+    border-radius: 25px 10px / 10px 25px;
+    border: 1px solid #fff;
+    height: 400px;
+    width: 800px;
+    position: fixed;
+    margin-left: 200px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.edit-header {
+    margin-top: -40px;
+}
+
+.inv-header {
+    margin-top: -40px;
 }
