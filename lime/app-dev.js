@@ -155,7 +155,8 @@ app.post("/login", function(req, res){
 	});
 });
 
-app.post("/logout", function(req, res){
+//originally used POST to log out, might go back to that
+app.get("/logout", function(req, res){
 	req.session.destroy(function(err){
 	  	if(err){
 			console.log("Error: %s", err);

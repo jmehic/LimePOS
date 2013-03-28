@@ -11,14 +11,14 @@ body {
     background-repeat: repeat;
 }
 
-//body > .container {
-  //  height: auto;
-    //min-height: 100%;
-//}
+/*body > .container {
+    height: auto;
+    min-height: 100%;
+}
 
-//p {
-  //  line-height: 1.8;
-//}
+p {
+    line-height: 1.8;
+}*/
 
 label {
     color: #fff;
@@ -58,4 +58,14 @@ label {
     color: #fff;
     border-top: 1px dotted #ccc;
     text-align: center;
+}
+
+.inventory {
+    border-radius: 25px 10px / 10px 25px;
+    border: 1px solid #fff;
+    height: 300px;
+    width: 500px;
+    position: fixed;
+    margin-left: 150px;
+    margin-top: -100px;
 }

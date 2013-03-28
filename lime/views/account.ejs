@@ -5,6 +5,10 @@
     <title>Lime - Your Account</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/jquery-ui.css">
+    <script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -26,11 +30,24 @@
 
         <div class="body">
             <p>Welcome to your account</p>
-            <form action="/logout" method="post">
+            <!--<form action="/logout" method="post">
                 <input type="submit" value="Log out"/>
-            </form>
+            </form>-->
+            
+            <div class="dropdown btn-group">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Menu
+                    <span class="caret"</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Inventory</a></li>
+                    <li><a href="#">Today's Stats</a></li>
+                    <li><a href="#">Generate Report</a></li>
+                    <li><a href="#">Edit Inventory</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-
 </body>
 </html>
