@@ -11,7 +11,8 @@ var express = require('express')
 	, bcrypt = require("bcrypt") //hashing algorithm
 	, MongoStore = require('connect-mongo')(express) //session datastore using mongodb
 	, mongoose = require('mongoose') //blessed mongodb connector
-	, User; //User class defined below
+	, User //User class defined below
+	, Item;
 
 //connect to the "users" database
 mongoose.connect('mongodb://localhost/coconut2');
@@ -26,9 +27,17 @@ db.once('open', function callback () {
 		username: String,
 		password: String
 	});
+
+	var itemSchema = mongoose.Schema({
+		item_id: Number,
+		item_name: String,
+		item_price: Number,
+		item_quantity: Number
+	});
 	
 	//Convert this schema into an instantiable "model" Class 
 	User = mongoose.model("User", userSchema);
+	Item = mongoose.model("Item", itemSchema);
 });
 
 var app = express();
@@ -103,7 +112,6 @@ app.get('/account', function( req, res ){
 
 app.post("/create", function(req, res){
 	var username = req.body.username;
-	console.log(username);
 	var password = req.body.password;
 	User.find({username: username}, function(err, users){
 	  	//check if the user already exists
@@ -152,6 +160,25 @@ app.post("/login", function(req, res){
 				res.redirect("/?error=invalid username or password");   
 			}
 		});
+	});
+});
+
+app.post("/additem", function( req, res ){
+	var item_id = req.body.itemid;
+	var item_name = req.body.itemname;
+	var price = req.body.price;
+	var quantity = req.body.quantity;
+	console.log(item_id +", "+item_name+", "+price+", "+quantity);
+
+	var newItem = new Item({
+		item_id: item_id,
+		item_name: item_name,
+		item_price: price,
+		item_quantity: quantity
+	});
+
+	newItem.save(function( err, newItem ){
+		res.redirect('/account');
 	});
 });
 

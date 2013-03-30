@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/jquery-ui.css">
+    <link rel="stylesheet" href="/stylesheets/jquery-ui-1.10.2.custom.css">
     <script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
     <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="/javascripts/account.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui-1.10.2.custom.js"></script>
 </head>
 
 <body>
@@ -41,17 +43,46 @@
                     <span class="caret"</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a id="inv" href="#">Inventory</a></li>
-                    <li><a id="tds" href="#">Today's Stats</a></li>
-                    <li><a id="gen" href="#">Generate Report</a></li>
-                    <li><a id="edit" href="#">Edit Inventory</a></li>
+                    <li><a id="setup" href="#set">Set Up Inventory</a></li>
+                    <li><a id="inv" href="#inventory">Inventory</a></li>
+                    <li><a id="tds" href="#stats">Today's Stats</a></li>
+                    <li><a id="gen" href="#report">Generate Report</a></li>
+                    <li><a id="edit" href="#edit">Edit Inventory</a></li>
                     <li><a href="/logout">Log Out</a></li>
                 </ul>
             </div>
 
+            <div class="setup">
+                <h3 class="setup-header">Set up Your Inventory</h3>
+                <form action="/additem" method="post">
+                    <label for="itemid">Item ID:</label>
+                    <input id="itemid" type="text" name="itemid"></input>
+                    <label for="itemname">Item name:</label>
+                    <input id="itemname" type="text" name="itemname"></input>
+                    <label for="price">Item price:</label>
+                    <input id="price" type="number" name="price"></input>
+                    <label for="quantity">Item quantity:</label>
+                    <input id="quantity" type="number" name="quantity"></input>
+                    <input type="submit" value="Add item"/>
+                </form>
+                <!-- Add "dialog" to add an item to the database with its name, id, price etc. -->
+            </div>
+
             <div class="inventory">
                 <h3 class="inv-header">Inventory</h3>
-                <div class="inventory-item"></div>
+                <div class="inventory-item">
+                    <h3>Item Name Here</h3>
+                    <p>ID:
+                        Price:
+                        Quantity:
+                    </p>
+                    <h3>Item Name Here</h3>
+                    <p>
+                        ID:
+                        Price:
+                        Quantity:
+                    </p>
+                </div>
             </div>
 
             <div class="stats">
@@ -68,7 +99,9 @@
 
             <div class="edit-inventory">
                 <h3 class="edit-header">Edit Your Inventory</h3>
-                <div class="inventory-item"></div>
+                <div class="edit-item">
+                    <h3>Item Name Here</h3>
+                </div>
             </div>
         </div>
     </div>

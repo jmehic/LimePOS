@@ -1,48 +1,42 @@
 $(document).ready(function(){
     var $wel = $('#welmsg');
+    var $setup = $('.setup');
     var $inventory = $('.inventory');
     var $inventory_item = $('.inventory-item');
     var $stats = $('.stats>*');
     var $report = $('.report>*');
     var $edit_inv = $('.edit-inventory');
-    $edit_inv.hide();
-    $report.hide();
-    $stats.hide();
-    $inventory.hide();
-    $inventory_item.hide();
+    var $edit_item = $('.edit-item');
+    var $elements = $('#welmsg, .setup, .inventory, .inventory-item, .stats>*, .report>*, .edit-inventory, .edit-item');
+    $inventory_item.accordion();
+    $edit_item.accordion();
+    $elements.hide();
+    $wel.show();
+
+    $('#setup').on('click', function(){
+        $elements.fadeOut('slow');
+        $setup.fadeIn('slow');
+    });
+
     $('#inv').on('click', function(){
-        $wel.fadeOut('slow');
-        $edit_inv.fadeOut('slow');
-        $stats.fadeOut('slow');
-        $report.fadeOut('slow');
+        $elements.fadeOut('slow');
         $inventory.fadeIn('slow');
         $inventory_item.fadeIn('slow');
     });
 
     $('#tds').on('click', function(){
-        $wel.fadeOut('slow');
-        $edit_inv.fadeOut('slow');
-        $inventory.fadeOut('slow');
-        $inventory_item.fadeOut('slow');
-        $report.fadeOut('slow');
+        $elements.fadeOut('slow');
         $stats.fadeIn('slow');
     });
 
     $('#gen').on('click', function(){
-        $wel.fadeOut('slow');
-        $edit_inv.fadeOut('slow');
-        $inventory.fadeOut('slow');
-        $inventory_item.fadeOut('slow');
-        $stats.fadeOut('slow');
+        $elements.fadeOut('slow');
         $report.fadeIn('slow');
     });
 
     $('#edit').on('click', function(){
-        $wel.fadeOut('slow');
-        $inventory.fadeOut('slow');
-        $inventory_item.fadeOut('slow');
-        $stats.fadeOut('slow');
-        $report.fadeOut('slow');
+        $elements.fadeOut('slow');
         $edit_inv.fadeIn('slow');
+        $edit_item.fadeIn('slow');
     });
 });

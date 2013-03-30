@@ -79,19 +79,20 @@ label {
     position: relative;
     margin-top: 10px;
     margin-left: 10px;
+    background-color: #fff;
 }
 
 .stats {
     position: fixed;
     margin-left: 200px;
-    margin-top: -25px;
+    margin-top: 10px;
     color: #fff;
 }
 
 .report {
     position: fixed;
     margin-left: 200px;
-    margin-top: -25px;
+    margin-top: 10px;
     color: #fff;
 }
 
@@ -106,10 +107,36 @@ label {
     color: #fff;
 }
 
+.edit-item {
+    border-radius: 25px;
+    border: 1px solid #fff;
+    height: 25px;
+    width: 780px;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #fff;
+}
+
 .edit-header {
     margin-top: -40px;
 }
 
 .inv-header {
     margin-top: -40px;
+}
+
+.setup {
+    position: fixed;
+    margin-left: 200px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.setup-header {
+    margin-top: -40px;
+}
+
+.shadow {
+    box-shadow: 0 0 30px 5px #999;
 }
