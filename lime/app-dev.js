@@ -9,6 +9,7 @@ var express = require('express')
 	, http = require('http')
 	, path = require('path')
 	, bcrypt = require("bcrypt") //hashing algorithm
+	, inventory = require('./public/javascripts/inventory.js')
 	, MongoStore = require('connect-mongo')(express) //session datastore using mongodb
 	, mongoose = require('mongoose') //blessed mongodb connector
 	, User //User class defined below
@@ -190,6 +191,13 @@ app.get("/logout", function(req, res){
 		}
 		res.redirect("/");
 	});   
+});
+
+app.get("/inventory", function( req, res ){
+	var item = Item.find( { item_id: 1 } );
+	console.log(item);
+	//inventory.getInventory(itemArray[0]);
+	inventory.getInventory(item);
 });
 
 http.createServer(app).listen(app.get('port'), function(){

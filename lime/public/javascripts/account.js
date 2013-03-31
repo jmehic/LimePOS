@@ -22,6 +22,7 @@ $(document).ready(function(){
         $elements.fadeOut('slow');
         $inventory.fadeIn('slow');
         $inventory_item.fadeIn('slow');
+        $inventory_item.append(inventory);
     });
 
     $('#tds').on('click', function(){
