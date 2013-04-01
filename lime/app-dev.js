@@ -194,10 +194,29 @@ app.get("/logout", function(req, res){
 });
 
 app.get("/inventory", function( req, res ){
-	var item = Item.find( { item_id: 1 } );
-	console.log(item);
-	//inventory.getInventory(itemArray[0]);
-	inventory.getInventory(item);
+	var itemCount;
+	var itemArray = [];
+
+	var printCount = function(){
+		console.log(itemCount);
+	};
+
+	var buildInventory = function(){
+		for(var i = 1; i <= itemCount; i++){
+			Item.findOne({ 'item_id': i }, 'item_id item_name item_price item_quantity', function( err, item ){
+				itemArray.push(item);
+				itemArray.reverse();
+				console.log(item);
+			});
+		};
+		return itemArray;
+	};
+
+	Item.count({}, function( err, count ){
+		itemCount = count;
+		printCount();
+		buildInventory();
+	});
 });
 
 http.createServer(app).listen(app.get('port'), function(){
