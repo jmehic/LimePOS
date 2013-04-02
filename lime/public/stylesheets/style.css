@@ -85,14 +85,14 @@ label {
 .stats {
     position: fixed;
     margin-left: 200px;
-    margin-top: 10px;
+    margin-top: -40px;
     color: #fff;
 }
 
 .report {
     position: fixed;
     margin-left: 200px;
-    margin-top: 10px;
+    margin-top: -40px;
     color: #fff;
 }
 
@@ -139,4 +139,11 @@ label {
 
 .shadow {
     box-shadow: 0 0 30px 5px #999;
+}
+
+#welmsg {
+    position: fixed;
+    margin-left: 200px;
+    margin-top: 10px;
+    color: #fff;
 }
