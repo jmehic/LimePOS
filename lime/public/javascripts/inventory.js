@@ -1,6 +1,8 @@
-function getInventory(item){
-    var inventory = item;
-    return inventory;
+var inventory;
+
+function sendInventory(items){
+    inventory = items;
 };
 
-exports.getInventory = getInventory;
+exports.sendInventory = sendInventory;
+exports.inventory = inventory;

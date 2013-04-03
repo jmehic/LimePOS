@@ -61,8 +61,8 @@ label {
 }
 
 .inventory {
-    border-radius: 25px 10px / 10px 25px;
-    border: 1px solid #fff;
+    /*border-radius: 25px 10px / 10px 25px;
+    border: 1px solid #fff;*/
     height: 400px;
     width: 800px;
     position: fixed;
@@ -72,14 +72,15 @@ label {
 }
 
 .inventory-item {
-    border-radius: 25px;
-    border: 1px solid #fff;
+    /*border-radius: 25px;
+    border: 1px solid #fff;*/
     height: 25px;
     width: 780px;
     position: relative;
     margin-top: 10px;
     margin-left: 10px;
-    background-color: #fff;
+    /*background-color: #fff;
+    color: #000;*/
 }
 
 .stats {
@@ -97,8 +98,8 @@ label {
 }
 
 .edit-inventory {
-    border-radius: 25px 10px / 10px 25px;
-    border: 1px solid #fff;
+    /*border-radius: 25px 10px / 10px 25px;
+    border: 1px solid #fff;*/
     height: 400px;
     width: 800px;
     position: fixed;
@@ -116,6 +117,7 @@ label {
     margin-top: 10px;
     margin-left: 10px;
     background-color: #fff;
+    color: #000;
 }
 
 .edit-header {

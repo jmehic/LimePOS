@@ -1,3 +1,5 @@
+//var globals = {};
+
 $(document).ready(function(){
     var $wel = $('#welmsg');
     var $setup = $('.setup');
@@ -8,8 +10,9 @@ $(document).ready(function(){
     var $edit_inv = $('.edit-inventory');
     var $edit_item = $('.edit-item');
     var $elements = $('#welmsg, .setup, .inventory, .inventory-item, .stats>*, .report>*, .edit-inventory, .edit-item');
-    $inventory_item.accordion();
-    $edit_item.accordion();
+    //globals.inventory;
+    $inventory_item.accordion({ collapsible: true, active: false });
+    $edit_item.accordion({ collapsible: true, active: false });
     $elements.hide();
     $wel.show();
 
@@ -41,3 +44,9 @@ $(document).ready(function(){
         $edit_item.fadeIn('slow');
     });
 });
+
+//$(function sendInventory(items){
+  // inventory = items;
+//});
+
+//exports.sendInventory = sendInventory;

@@ -194,7 +194,7 @@ app.get("/logout", function(req, res){
 });
 
 app.get("/inventory", function( req, res ){
-	var itemCount;
+	/*var itemCount;
 	var itemArray = [];
 
 	var printCount = function(){
@@ -216,6 +216,31 @@ app.get("/inventory", function( req, res ){
 		itemCount = count;
 		printCount();
 		buildInventory();
+		inventory.sendInventory(itemArray);
+	});
+
+	res.contentType('text/html');
+	res.write(JSON.stringify(itemArray));*/
+	//res.send("test");
+	/*res.contentType('text/html');
+	res.write({ title: 'Test' });
+
+	Item.find({}).each( function( err, doc ){
+		if( err ) return res.end('error!', + err);
+		if( doc ){
+			res.write("doc is being written");
+		} else {
+			res.end();
+		}
+	});*/
+	var itemArray;
+	Item.find({}, 'item_name', function( err, docs ){
+		//res.send(JSON.stringify(docs));
+		//inventory.sendInventory(docs);
+		itemArray = docs;
+		JSON.stringify(itemArray);
+		console.log(itemArray);
+		res.send(itemArray);
 	});
 });
 
