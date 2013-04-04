@@ -149,3 +149,10 @@ label {
     margin-top: 10px;
     color: #fff;
 }
+
+.checkout-btn {
+    position: fixed;
+    margin-left: -200px;
+    margin-top: 200px;
+    display: block;
+}

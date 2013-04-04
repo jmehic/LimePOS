@@ -195,7 +195,7 @@ app.get("/logout", function(req, res){
 
 app.get("/inventory", function( req, res ){
 	var itemArray;
-	Item.find({}, 'item_name', function( err, docs ){
+	Item.find({}, 'item_id item_name item_price item_quantity', function( err, docs ){
 		//res.send(JSON.stringify(docs));
 		//inventory.sendInventory(docs);
 		//res.write(itemArray[0].item_id);
