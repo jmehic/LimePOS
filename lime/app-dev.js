@@ -194,52 +194,17 @@ app.get("/logout", function(req, res){
 });
 
 app.get("/inventory", function( req, res ){
-	/*var itemCount;
-	var itemArray = [];
-
-	var printCount = function(){
-		console.log(itemCount);
-	};
-
-	var buildInventory = function(){
-		for(var i = 1; i <= itemCount; i++){
-			Item.findOne({ 'item_id': i }, 'item_id item_name item_price item_quantity', function( err, item ){
-				itemArray.push(item);
-				itemArray.reverse();
-				console.log(item);
-			});
-		};
-		return itemArray;
-	};
-
-	Item.count({}, function( err, count ){
-		itemCount = count;
-		printCount();
-		buildInventory();
-		inventory.sendInventory(itemArray);
-	});
-
-	res.contentType('text/html');
-	res.write(JSON.stringify(itemArray));*/
-	//res.send("test");
-	/*res.contentType('text/html');
-	res.write({ title: 'Test' });
-
-	Item.find({}).each( function( err, doc ){
-		if( err ) return res.end('error!', + err);
-		if( doc ){
-			res.write("doc is being written");
-		} else {
-			res.end();
-		}
-	});*/
 	var itemArray;
 	Item.find({}, 'item_name', function( err, docs ){
 		//res.send(JSON.stringify(docs));
 		//inventory.sendInventory(docs);
+		//res.write(itemArray[0].item_id);
 		itemArray = docs;
-		JSON.stringify(itemArray);
+		//JSON.stringify(itemArray);
 		console.log(itemArray);
+		/*res.render('inventory.ejs', {
+			itemArray: JSON.stringify(itemArray),
+		});*/
 		res.send(itemArray);
 	});
 });

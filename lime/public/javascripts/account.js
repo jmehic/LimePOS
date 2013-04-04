@@ -25,7 +25,41 @@ $(document).ready(function(){
         $elements.fadeOut('slow');
         $inventory.fadeIn('slow');
         $inventory_item.fadeIn('slow');
-        $inventory_item.append(inventory);
+        var inventory;
+        var itemArray = [];
+        //$inventory_item.append(inventory);
+        $.get("/inventory", function(items){
+            inventory = items;
+            for(var i = 0; i < inventory.length; i++){
+                var name = inventory[i].item_name;
+                var $newItem = '<div class="inventory-item><h3>'+name+'</h3><p>ID: Price: Quantity:</p>';
+                itemArray.push($newItem);
+            };
+        });
+        $inventory.append(itemArray[0].item_name);
+        for(var i = 0; i < itemArray.length; i++){
+            $inventory.append(itemArray[i].item_name);
+        }
+            //$elements.fadeOut('slow');
+            //alert(inventory);
+            //$inventory_item.append(inventory[0].item_name);
+            /*for(var i = 0; i < inventory.length; i++){
+                var name_i = inventory[i].item_name;
+                $inventory.append('<div id="' + i + '" class="inventory-item">');
+                $('#'+i+'').html('<h3>name_'+i+'</h3>
+                    <p>
+                        ID:
+                        Price:
+                        Quantity:
+                    </p>
+                    </div>');
+            };
+            for(var i = 0; i < inventory.length; i++)
+                $inventory.append(inventory[i].item_name);
+        });
+        /*for(var j = 0; j < inventory.length; j++){
+            $('body').append(div_j);
+        };*/
     });
 
     $('#tds').on('click', function(){
