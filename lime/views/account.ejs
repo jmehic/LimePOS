@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lime - Your Account</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/jquery-ui.css">
+    <link rel="stylesheet" href="/stylesheets/jquery-ui-1.10.2.custom.css">
+    <script type="text/javascript" src="/javascripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/account.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui-1.10.2.custom.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="brand" href="/">Lime</a>
+                    <ul class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Lime</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="body">
+            <div id="welmsg">
+                <p>
+                    Welcome to your account<br><br>
+                    To access Lime's features, use the menu to the left.<br>
+                    If you need help, <a href="#">click here</a> to access the help documentation.<br>
+                    If you'd like an intro to the service, <a href="#">click here</a>.
+                </p>
+            <!--<form action="/logout" method="post">
+                <input type="submit" value="Log out"/>
+            </form>-->
+            </div>
+            <div class="dropdown btn-group">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Menu
+                    <span class="caret"</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a id="setup" href="#set">Set Up Inventory</a></li>
+                    <li><a id="inv" href="#inventory">Inventory</a></li>
+                    <li><a id="tds" href="#stats">Today's Stats</a></li>
+                    <li><a id="gen" href="#report">Generate Report</a></li>
+                    <li><a id="edit" href="#edit">Edit Inventory</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
+
+            <div class="setup">
+                <h3 class="setup-header">Set up Your Inventory</h3>
+                <form action="/additem" method="post">
+                    <label for="itemid">Item ID:</label>
+                    <input id="itemid" type="text" name="itemid"></input>
+                    <label for="itemname">Item name:</label>
+                    <input id="itemname" type="text" name="itemname"></input>
+                    <label for="price">Item price:</label>
+                    <input id="price" type="number" name="price"></input>
+                    <label for="quantity">Item quantity:</label>
+                    <input id="quantity" type="number" name="quantity"></input>
+                    <input type="submit" value="Add item"/>
+                </form>
+                <!-- Add "dialog" to add an item to the database with its name, id, price etc. -->
+            </div>
+
+            <div class="inventory">
+                <h3 class="inv-header">Inventory</h3>
+                <div class="checkout-btn">
+                    <label for="cart">Cart:</label>
+                    <input style="width: 50px;" id="cart" type="text" name="cart" placeholder="$0.00"></input>
+                    <button style="float: right;" class="btn btn-primary" type="button" id="chckbtn">Checkout</button>
+                </div>
+                <div class="inventory-item">
+                </div>
+            </div>
+
+            <div class="stats">
+                <h3>Daily Statistics</h3>
+                <h4>Item Sold</h4>
+                <h4>Revenue</h4>
+                <h4>Change Given</h4>
+                <h4>Total Profit</h4>
+            </div>
+
+            <div class="report">
+                <h3>Report of Daily Activity</h3>
+            </div>
+
+            <div class="edit-inventory">
+                <h3 class="edit-header">Edit Your Inventory</h3>
+                <div class="edit-item">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

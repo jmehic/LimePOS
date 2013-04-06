@@ -1,25 +1,23 @@
 @import url("http://fonts.googleapis.com/css?family=Roboto+Condensed");
 @import url("http://fonts.googleapis.com/css?family=Junge");
 
-html {
-    height: 100%;
-}
-
+html,
 body {
     height: 100%;
-    line-height: 1;
-    color: #000;
+    width: 100%;
+    /*padding: 0;
+    margin: 0;*/
     background-image: url('../images/dark_fish_skin.png');
     background-repeat: repeat;
 }
 
-body > .container {
-    height: auto;
-    min-height: 100%;
+label {
+    color: #fff;
 }
 
-p {
-    line-height: 1.8;
+.container {
+    min-height: 100%;
+    position: relative;
 }
 
 .header {
@@ -32,34 +30,116 @@ p {
     border-bottom: 1px solid #000;
 }
 
-.container {
-    height: 100%;
-    width: 100%;
-    margin: 50px auto;
-    overflow: hidden;
+.body {
+    padding: 10px;
+    padding-bottom: 60px;
 }
 
-.main-content {
-    width: 500px;
-}
-
-.main-content p {
+.body p {
     font-family: 'Roboto';
     font-size: 20px;
     color: #fff;
 }
 
 .footer {
-    clear: both;
-    position: relative;
-    z-index: 10;
-    height: 3em;
-    margin-top: -3em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
     color: #fff;
     border-top: 1px dotted #ccc;
     text-align: center;
 }
 
-label {
+.inventory {
+    height: 400px;
+    width: 800px;
+    position: fixed;
+    margin-left: 200px;
+    margin-top: 10px;
     color: #fff;
+}
+
+.inventory-item {
+    height: 25px;
+    width: 780px;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.stats {
+    position: fixed;
+    margin-left: 200px;
+    margin-top: -40px;
+    color: #fff;
+}
+
+.report {
+    position: fixed;
+    margin-left: 200px;
+    margin-top: -40px;
+    color: #fff;
+}
+
+.edit-inventory {
+    height: 400px;
+    width: 800px;
+    position: fixed;
+    margin-left: 200px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.edit-item {
+    border-radius: 25px;
+    border: 1px solid #fff;
+    height: 25px;
+    width: 780px;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #fff;
+    color: #000;
+}
+
+.edit-header {
+    margin-top: -40px;
+}
+
+.inv-header {
+    margin-top: -40px;
+}
+
+.setup {
+    position: fixed;
+    margin-left: 200px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.setup-header {
+    margin-top: -40px;
+}
+
+.shadow {
+    box-shadow: 0 0 30px 5px #999;
+}
+
+#welmsg {
+    position: fixed;
+    margin-left: 200px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.checkout-btn {
+    position: fixed;
+    margin-left: -200px;
+    margin-top: 200px;
+    display: block;
+}
+
+.ui-accordion .ui-accordion-content {
+    height: auto !important;
 }

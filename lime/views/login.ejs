@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lime - Login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script type="javascript" src="/javascripts/jquery-1.9.1.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="brand" href="#">Lime</a>
+                    <ul class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/create">Create Account</a></li>
+                    <li><a href="/login">Log In</a></li>
+                    <li><a href="/about">About Lime</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="body">
+            <form action="/login" method="post">
+            <p>Log in to your account
+                <label for="username">Username:</label>
+                <input id="username" type="text" name="username"></input>
+                <label for="password">Password:</label>
+                <input id="password" type="password" name="password"></input>
+                <input type="submit" value="Log in"/>
+            </p>
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>Brought to you by Null Pointer Productions with NodeJS</p>
+        </div>
+    </div>
+</body>
+</html>
