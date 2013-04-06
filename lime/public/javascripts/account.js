@@ -19,21 +19,56 @@ $(document).ready(function(){
         $inventory.fadeIn('slow');
         var inventory;
         var itemArray = [];
+        var cartAmount = 0;
+        var cartIds = [];
         $.get("/inventory", function(items){
             inventory = items;
             $.each(inventory, function( count, item ){
                 $('.inventory-item').append('<h3>'+item.item_name+'</h3>\
                     <p style="font-size: 20px;">Price:'+item.item_price+'\
                     Quantity:'+item.item_quantity+'\
-                    <button class="add-button btn btn-small btn-primary" type="button" id="'+item.item_id+'">Add to cart</button></p>');
+                    <button class="add-button btn btn-small btn-primary"\
+                    type="button" id="addbtn'+count+'">Add to cart</button></p>');
+
+                $('#addbtn'+count).on('click', function(){
+                    cartAmount += inventory[count].item_price;
+                    cartIds.push(inventory[count].item_id);
+                    $('#cart').val("$"+cartAmount);
+                });
             });
             $('.inventory-item').accordion({ collapsible: true, active: false, autoHeight: true });
             $('.inventory-item').fadeIn('slow');
-            $('#0').on('click', function(){
-                alert("add button");
-                if($(this).attr('id') === 'item0'){
-                    $('#cart').val(inventory[0].item_price);
-                };
+        });
+
+        var soldIds = [];
+        var copy = cartIds.slice(0);
+
+        for(var i = 0; i < cartIds.length; i++){
+            var count = 0;
+            for(var j = 0; j < copy.length; j++){
+                if(cartIds[i] === copy[j]){
+                    count++;
+                    delete copy[j];
+                }
+            }
+            if(count > 0){
+                var soldItem = new Object();
+                soldItem.itemId = cartIds[i];
+                soldItem.count = count;
+                soldIds.push(soldItem);
+            }
+        }
+
+        $('#chckbtn').on('click', function(){
+            /*cartIds.forEach(function( itemId ){
+                var key = itemId;
+                counter[key] = (counter[key] || 0) + 1;
+
+            });*/
+            $.ajax({
+                type: 'POST',
+                url: '/checkout',
+                data: { itemsSold: soldIds }
             });
         });
     });

@@ -183,6 +183,12 @@ app.post("/additem", function( req, res ){
 	});
 });
 
+app.post("/checkout", function( req, res ){
+	console.log("checkout post function reached");
+	console.log(req.body.itemsSold);
+	//console.log(req.body.itemsSold[0]);
+});
+
 //originally used POST to log out, might go back to that
 app.get("/logout", function(req, res){
 	req.session.destroy(function(err){
