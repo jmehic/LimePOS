@@ -9,7 +9,6 @@ var express = require('express')
 	, http = require('http')
 	, path = require('path')
 	, bcrypt = require("bcrypt") //hashing algorithm
-	, inventory = require('./public/javascripts/inventory.js')
 	, MongoStore = require('connect-mongo')(express) //session datastore using mongodb
 	, mongoose = require('mongoose') //blessed mongodb connector
 	, User //User class defined below
@@ -90,13 +89,8 @@ app.get('/users', function(req, res, next){
 	}
 }, user.list);
 
-app.get('/database', function( req, res ){
-	if( req.session.username ){
-		res.render('database.ejs', { title: 'Lime - Database Demo' });
-	}
-	else{
-		res.redirect('/');
-	}
+app.get('/about', function( req, res ){
+	res.render('about.ejs', { title: 'Lime - About' });
 });
 
 app.get('/login', function( req, res ){
@@ -108,7 +102,12 @@ app.get('/create', function( req, res ){
 });
 
 app.get('/account', function( req, res ){
-	res.render('account.ejs', { title: 'Lime - Your Account' });
+	if( req.session.username ){
+		res.render('account.ejs', { title: 'Lime - Your Account' });
+	}
+	else{
+		res.redirect('/');
+	}
 });
 
 app.post("/create", function(req, res){
@@ -184,9 +183,41 @@ app.post("/additem", function( req, res ){
 });
 
 app.post("/checkout", function( req, res ){
-	console.log("checkout post function reached");
-	console.log(req.body.itemsSold);
-	//console.log(req.body.itemsSold[0]);
+	var cartIds = req.body.itemsSold;
+	var soldIds = [];
+    var itemCounter = {};
+    var newQuantity;
+    for(var i = 0; i < cartIds.length; i++){
+        var key = cartIds[i];
+        var value = cartIds[i];
+        if(itemCounter[key] === undefined){
+            soldIds.push(value);
+            itemCounter[key] = 1;
+        }
+        else{
+    	    itemCounter[key]++;
+        }
+    }
+	for(var key in itemCounter){
+		var count = itemCounter[key];
+		Item.findOne({ item_id: key }, 'item_quantity', function( err, doc ){
+			newQuantity = doc.item_quantity;
+			newQuantity -= count;
+			doc.item_quantity -= count;
+			doc.save();
+		});
+	}
+});
+
+app.post("/savechanges", function( req, res ){
+	var itemId = req.body.itemId;
+	var newPrice = req.body.price;
+	var newQuantity = req.body.quantity;
+	Item.findOne({ item_id: itemId }, 'item_price item_quantity', function( err, doc ){
+		doc.item_price = newPrice;
+		doc.item_quantity = newQuantity;
+		doc.save();
+	});
 });
 
 //originally used POST to log out, might go back to that
@@ -202,15 +233,7 @@ app.get("/logout", function(req, res){
 app.get("/inventory", function( req, res ){
 	var itemArray;
 	Item.find({}, 'item_id item_name item_price item_quantity', function( err, docs ){
-		//res.send(JSON.stringify(docs));
-		//inventory.sendInventory(docs);
-		//res.write(itemArray[0].item_id);
 		itemArray = docs;
-		//JSON.stringify(itemArray);
-		console.log(itemArray);
-		/*res.render('inventory.ejs', {
-			itemArray: JSON.stringify(itemArray),
-		});*/
 		res.send(itemArray);
 	});
 });

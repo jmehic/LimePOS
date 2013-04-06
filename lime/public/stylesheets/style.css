@@ -5,20 +5,11 @@ html,
 body {
     height: 100%;
     width: 100%;
-    padding: 0;
-    margin: 0;
+    /*padding: 0;
+    margin: 0;*/
     background-image: url('../images/dark_fish_skin.png');
     background-repeat: repeat;
 }
-
-/*body > .container {
-    height: auto;
-    min-height: 100%;
-}
-
-p {
-    line-height: 1.8;
-}*/
 
 label {
     color: #fff;
@@ -61,8 +52,6 @@ label {
 }
 
 .inventory {
-    /*border-radius: 25px 10px / 10px 25px;
-    border: 1px solid #fff;*/
     height: 400px;
     width: 800px;
     position: fixed;
@@ -72,15 +61,11 @@ label {
 }
 
 .inventory-item {
-    /*border-radius: 25px;
-    border: 1px solid #fff;*/
     height: 25px;
     width: 780px;
     position: relative;
     margin-top: 10px;
     margin-left: 10px;
-    /*background-color: #fff;
-    color: #000;*/
 }
 
 .stats {
@@ -98,8 +83,6 @@ label {
 }
 
 .edit-inventory {
-    /*border-radius: 25px 10px / 10px 25px;
-    border: 1px solid #fff;*/
     height: 400px;
     width: 800px;
     position: fixed;
@@ -155,4 +138,8 @@ label {
     margin-left: -200px;
     margin-top: 200px;
     display: block;
+}
+
+.ui-accordion .ui-accordion-content {
+    height: auto !important;
 }

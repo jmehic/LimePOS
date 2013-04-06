@@ -40,47 +40,13 @@ $(document).ready(function(){
             $('.inventory-item').fadeIn('slow');
         });
 
-        var soldIds = [];
-        var copy = cartIds.slice(0);
-
-        for(var i = 0; i < cartIds.length; i++){
-            var count = 0;
-            for(var j = 0; j < copy.length; j++){
-                if(cartIds[i] === copy[j]){
-                    count++;
-                    delete copy[j];
-                }
-            }
-            if(count > 0){
-                var soldItem = new Object();
-                soldItem.itemId = cartIds[i];
-                soldItem.count = count;
-                soldIds.push(soldItem);
-            }
-        }
-
         $('#chckbtn').on('click', function(){
-            /*cartIds.forEach(function( itemId ){
-                var key = itemId;
-                counter[key] = (counter[key] || 0) + 1;
-
-            });*/
             $.ajax({
                 type: 'POST',
                 url: '/checkout',
-                data: { itemsSold: soldIds }
+                data: { itemsSold: cartIds }
             });
         });
-    });
-
-    $('#tds').on('click', function(){
-        $elements.fadeOut('slow');
-        $stats.fadeIn('slow');
-    });
-
-    $('#gen').on('click', function(){
-        $elements.fadeOut('slow');
-        $report.fadeIn('slow');
     });
 
     $('#edit').on('click', function(){
@@ -92,14 +58,36 @@ $(document).ready(function(){
             inventory = items;
             $.each(inventory, function( count, item ){
                 $('.edit-item').append('<h3>'+item.item_name+'</h3>\
-                    <label for="price">Price:</label>\
-                    <input id="price" type="text" name="price"></input>\
+                    <div><p><label for="price">Price:</label>\
+                    <input id="price'+count+'" type="text" name="price"></input>\
                     <label for="quantity">Quantity:</label>\
-                    <input id="quantity" type="text" name="quantity"></input>\
-                    <button class="save-button btn btn-small btn-primary" type="button" id="'+item.item_id+'">Save changes</button>');
+                    <input id="quantity'+count+'" type="text" name="quantity"></input>\
+                    <button class="save-button btn btn-small btn-primary"\
+                    type="button" id="savebtn'+item.item_id+'">Save changes</button></p></div>');
+                $('#price'+count).val(item.item_price);
+                $('#quantity'+count).val(item.item_quantity);
+                $('#savebtn'+item.item_id).on('click', function(){
+                    var newPrice = $('#price'+count).val();
+                    var newQuantity = $('#quantity'+count).val();
+                    $.ajax({
+                        type: 'POST',
+                        url: '/savechanges',
+                        data: { itemId: item.item_id, price: newPrice, quantity: newQuantity }
+                    });
+                });
             });
-            $('.edit-item').accordion({ collapsible: true, active: false, autoHeight: false });
+            $('.edit-item').accordion({ collapsible: true, active: false });
             $('.edit-item').fadeIn('slow');
         });
+    });
+
+    $('#tds').on('click', function(){
+        $elements.fadeOut('slow');
+        $stats.fadeIn('slow');
+    });
+
+    $('#gen').on('click', function(){
+        $elements.fadeOut('slow');
+        $report.fadeIn('slow');
     });
 });

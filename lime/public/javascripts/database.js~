@@ -1,6 +1,0 @@
-var db = require('./app.js');
-
-function displayUsers(){
-    var userCount = db.users.count();
-    alert(userCount);
-};
