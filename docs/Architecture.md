@@ -1,4 +1,4 @@
-#System Architecture (Beta)
+#System Architecture
 
 ###Tech Stack
 
@@ -8,7 +8,7 @@
     * used to implement the core functionality of the service
 * jQuery:
     * used to facilitate interactivity and event handling
-    * jQueryUI will be used to implement the services user interface
+    * jQueryUI will be used to implement the user interface
 * HTML+CSS:
     * used to create and render the services web pages
     * modern standards will be followed allowing for compatibility across all modern browsers
