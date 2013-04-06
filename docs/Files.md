@@ -31,7 +31,7 @@ Simple log in page. Allows the user to log in to the service with their credenti
 The main stylesheet for the web application. Includes styling for classes such as .header, .body, and .footer. Includes fonts from Google's font API. Written in CSS.
 
 ###public/images/dark_fish_skin.png:
-Image used for the background of all pages of the web application. Setup in the style.css file to repeat across the background. Image from a website dedicated to subtle backgrounds called [Subtle Patterns](http://subtlepatterns.com/).
+Image used for the background of all pages of the web application. Setup in the style.css file to repeat across the background. Image from a website dedicated to subtle backgrounds called [Subtle Patterns](http://subtlepatterns.com/). Specific link to our pattern: http://subtlepatterns.com/dark-fish-skin/
 
 ###public/images/favicon.ico:
 A favicon image for the site. A slice of a lime. Source: http://www.clker.com/clipart-lime-slice.html
