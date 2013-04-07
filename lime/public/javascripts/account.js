@@ -57,6 +57,18 @@ $(document).ready(function(){
             $('.inventory-item').fadeIn('slow');
         });
 
+        //event handler for the clear cart button
+        $('#clearbtn').on('click', function(){
+            if(cartIds.length === 0){
+                alert("The cart is empty!");
+            }
+            else{
+                cartIds.length = 0;
+                cartAmount = 0;
+                $('#cart').val("$"+0.00);
+            }
+        });
+
         //event handler for the check out button
         $('#chckbtn').on('click', function(){
             if(cartIds.length === 0){
@@ -74,7 +86,7 @@ $(document).ready(function(){
                 soldCount += cartIds.length;
                 revenue += cash;
                 changeGiven += changeDue;
-                alert("Change due: $"+changeDue);
+                alert("Transaction succeeded; change due: $"+changeDue);
                 $('#cart').val("$"+0.00);
                 $('#amntgiven').val("$"+0.00);
                 $.ajax({
