@@ -128,6 +128,7 @@ $(document).ready(function(){
                         url: '/savechanges',
                         data: { itemId: item.item_id, price: newPrice, quantity: newQuantity }
                     });
+                    alert("Changes saved");
                 });
             });
             //place an accordion on each item and fade them all in
