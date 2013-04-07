@@ -1,4 +1,6 @@
+//capture the document in jQuery when its ready
 $(document).ready(function(){
+    //grab the required html elements and put them in variables
     var $wel = $('#welmsg');
     var $setup = $('.setup');
     var $inventory = $('.inventory');
@@ -6,23 +8,30 @@ $(document).ready(function(){
     var $stats = $('.stats>*');
     var $report = $('.report>*');
     var $elements = $('#welmsg, .setup, .inventory, .inventory-item, .stats>*, .report>*, .edit-inventory, .edit-item');
+    //initially hide all the elements except for the welcome message
     $elements.hide();
     $wel.show();
 
+    //activate the setup view
     $('#setup').on('click', function(){
         $elements.fadeOut('slow');
         $setup.fadeIn('slow');
     });
 
+    //activate the inventory view and retrieve the inventory from the database
     $('#inv').on('click', function(){
         $elements.fadeOut('slow');
         $inventory.fadeIn('slow');
         var inventory;
-        var itemArray = [];
         var cartAmount = 0;
         var cartIds = [];
+        //use jQuery AJAX to get the inventory
         $.get("/inventory", function(items){
             inventory = items;
+            //for each item in the returned array, create a code block
+            //with a header containing the name, labels containing the price
+            //and quantity, and an add to cart button
+            //append each of these to the main inventory div
             $.each(inventory, function( count, item ){
                 $('.inventory-item').append('<h3>'+item.item_name+'</h3>\
                     <p style="font-size: 20px;">Price:'+item.item_price+'\
@@ -30,32 +39,44 @@ $(document).ready(function(){
                     <button class="add-button btn btn-small btn-primary"\
                     type="button" id="addbtn'+count+'">Add to cart</button></p>');
 
+                //event handler for each add button, connected by the item count
                 $('#addbtn'+count).on('click', function(){
                     cartAmount += inventory[count].item_price;
                     cartIds.push(inventory[count].item_id);
-                    $('#cart').val("$"+cartAmount);
+                    $('#cart').val("$"+cartAmount); //update the dollar value in the cart input box
                 });
             });
+            //place an accordion on each item and fade them all in
             $('.inventory-item').accordion({ collapsible: true, active: false, autoHeight: true });
             $('.inventory-item').fadeIn('slow');
         });
 
+        //event handler for the check out button
         $('#chckbtn').on('click', function(){
-            $.ajax({
-                type: 'POST',
-                url: '/checkout',
-                data: { itemsSold: cartIds }
-            });
+            if(cartIds.length === 0){
+                alert("The cart is empty!");
+            }
+            //if cart is not empty, posts the item IDs of all items sold to the database
+            //the cartIds array stores duplicates, so we keep track of the count of each item
+            else{
+                $.ajax({
+                    type: 'POST',
+                    url: '/checkout',
+                    data: { itemsSold: cartIds }
+                });
+            }
         });
     });
 
+    //activate the edit inventory view and retrieve the inventory from the database
     $('#edit').on('click', function(){
         $elements.fadeOut('slow');
         $edit_inv.fadeIn('slow');
         var inventory;
-        var itemArray = [];
         $.get("/inventory", function(items){
             inventory = items;
+            //same idea as inventory view, except it has input boxes filled with the values
+            //user can edit the value in the input box then save the update
             $.each(inventory, function( count, item ){
                 $('.edit-item').append('<h3>'+item.item_name+'</h3>\
                     <div><p><label for="price">Price:</label>\
@@ -66,9 +87,12 @@ $(document).ready(function(){
                     type="button" id="savebtn'+item.item_id+'">Save changes</button></p></div>');
                 $('#price'+count).val(item.item_price);
                 $('#quantity'+count).val(item.item_quantity);
+                //event handler for each item's save button
                 $('#savebtn'+item.item_id).on('click', function(){
+                    //gets the new values
                     var newPrice = $('#price'+count).val();
                     var newQuantity = $('#quantity'+count).val();
+                    //posts the new values to the database
                     $.ajax({
                         type: 'POST',
                         url: '/savechanges',
@@ -76,16 +100,19 @@ $(document).ready(function(){
                     });
                 });
             });
+            //place an accordion on each item and fade them all in
             $('.edit-item').accordion({ collapsible: true, active: false });
             $('.edit-item').fadeIn('slow');
         });
     });
 
+    //activate the daily stats view
     $('#tds').on('click', function(){
         $elements.fadeOut('slow');
         $stats.fadeIn('slow');
     });
 
+    //activate the generate report view
     $('#gen').on('click', function(){
         $elements.fadeOut('slow');
         $report.fadeIn('slow');
