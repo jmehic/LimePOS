@@ -12,7 +12,13 @@ var express = require('express')
 	, MongoStore = require('connect-mongo')(express) //session datastore using mongodb
 	, mongoose = require('mongoose') //mongodb connector
 	, User //User class
-	, Item; //Item class
+	, Item  //Item class
+	, Stats = { //stats tracking object; not the most elegant of solutions
+		itemCount: 0,
+		revenueEarned: 0,
+		changeG: 0,
+		profitMade: 0
+	};
 
 //connect to the database
 mongoose.connect('mongodb://localhost/coconut');
@@ -34,7 +40,6 @@ db.once('open', function callback () {
 		item_price: Number,
 		item_quantity: Number
 	});
-	
 	//Convert schemas into models
 	User = mongoose.model("User", userSchema);
 	Item = mongoose.model("Item", itemSchema);
@@ -205,6 +210,16 @@ app.post("/additem", function( req, res ){
 app.post("/checkout", function( req, res ){
 	//get item ids of sold items
 	var cartIds = req.body.itemsSold;
+	//get stats data from client
+	var itCount = parseInt(req.body.itemCount);
+	var itemRevenue = parseFloat(req.body.itRevenue);
+	var itemChange = parseFloat(req.body.chngGiven);
+	var profit = itemRevenue - itemChange;
+	//update persistent stats object
+	Stats.itemCount += itCount;
+	Stats.revenueEarned += itemRevenue;
+	Stats.changeG += itemChange;
+	Stats.profitMade += profit;
 	var soldIds = [];
     var itemCounter = {}; //object to store key/value pair for item ids and how many were sold
     //loop through item ids and increment sold count for each item sold
@@ -261,6 +276,11 @@ app.get("/inventory", function( req, res ){
 		itemArray = docs;
 		res.send(itemArray);
 	});
+});
+
+//get method for stats
+app.get("/stats", function( req, res ){
+	res.send(Stats);
 });
 
 http.createServer(app).listen(app.get('port'), function(){

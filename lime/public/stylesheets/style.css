@@ -137,3 +137,10 @@ label {
 .ui-accordion .ui-accordion-content {
     height: auto !important;
 }
+
+.amnt-given {
+    position: fixed;
+    margin-left: -200px;
+    margin-top: 260px;
+    display: block;
+}

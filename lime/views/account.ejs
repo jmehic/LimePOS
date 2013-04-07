@@ -73,6 +73,10 @@
                 <div class="checkout-btn">
                     <label for="cart">Cart:</label>
                     <input style="width: 50px;" id="cart" type="text" name="cart" placeholder="$0.00"></input>
+                </div>
+                <div class="amnt-given">
+                    <label for="amntgiven">Cash:</label>
+                    <input style="width: 50px;" id="amntgiven" type="text" name="amntgiven" placeholder="$0.00"></input>
                     <button style="float: right;" class="btn btn-primary" type="button" id="chckbtn">Checkout</button>
                 </div>
                 <div class="inventory-item">
@@ -80,15 +84,22 @@
             </div>
 
             <div class="stats">
-                <h3>Daily Statistics</h3>
+                <h3>Accounting Statistics</h3>
                 <h4>Items Sold</h4>
+                <p id="soldItems"></p>
                 <h4>Revenue</h4>
+                <p id="itemRevenue"></p>
                 <h4>Change Given</h4>
+                <p id="changeTracker"></p>
                 <h4>Total Profit</h4>
+                <p id="profitTracker"></p>
             </div>
 
             <div class="report">
                 <h3>Report of Daily Activity</h3>
+                <p>
+                    Coming soon
+                </p>
             </div>
 
             <div class="edit-inventory">

@@ -8,6 +8,10 @@ $(document).ready(function(){
     var $stats = $('.stats>*');
     var $report = $('.report>*');
     var $elements = $('#welmsg, .setup, .inventory, .inventory-item, .stats>*, .report>*, .edit-inventory, .edit-item');
+    //stats tracking variables
+    var soldCount = 0;
+    var revenue = 0;
+    var changeGiven = 0;
     //initially hide all the elements except for the welcome message
     $elements.hide();
     $wel.show();
@@ -24,6 +28,8 @@ $(document).ready(function(){
         $inventory.fadeIn('slow');
         var inventory;
         var cartAmount = 0;
+        var cash = 0;
+        var changeDue = 0;
         var cartIds = [];
         //use jQuery AJAX to get the inventory
         $.get("/inventory", function(items){
@@ -56,13 +62,25 @@ $(document).ready(function(){
             if(cartIds.length === 0){
                 alert("The cart is empty!");
             }
+            else if($('#amntgiven').val() === 0 || $('#amntgiven').val() < cartAmount){
+                alert("Not enough cash to complete transaction!");
+            }
             //if cart is not empty, posts the item IDs of all items sold to the database
             //the cartIds array stores duplicates, so we keep track of the count of each item
             else{
+                cash = $('#amntgiven').val();
+                changeDue = cash - cartAmount;
+                //update stats
+                soldCount += cartIds.length;
+                revenue += cash;
+                changeGiven += changeDue;
+                alert("Change due: $"+changeDue);
+                $('#cart').val("$"+0.00);
+                $('#amntgiven').val("$"+0.00);
                 $.ajax({
                     type: 'POST',
                     url: '/checkout',
-                    data: { itemsSold: cartIds }
+                    data: { itemsSold: cartIds, itemCount: soldCount, itRevenue: revenue, chngGiven: changeGiven }
                 });
             }
         });
@@ -110,6 +128,15 @@ $(document).ready(function(){
     $('#tds').on('click', function(){
         $elements.fadeOut('slow');
         $stats.fadeIn('slow');
+        var statsObj;
+        //get the Stats object from the server and append to view
+        $.getJSON("/stats", function(data){
+            statsObj = data;
+            $('#soldItems').append(statsObj.itemCount);
+            $('#itemRevenue').append(statsObj.revenueEarned);
+            $('#changeTracker').append(statsObj.changeG);
+            $('#profitTracker').append(statsObj.profitMade);
+        });
     });
 
     //activate the generate report view
