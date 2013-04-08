@@ -63,6 +63,7 @@ $(document).ready(function(){
                 alert("The cart is empty!");
             }
             else{
+                //empty the cart and cartAmount
                 cartIds.length = 0;
                 cartAmount = 0;
                 $('#cart').val("$"+0.00);
@@ -77,7 +78,7 @@ $(document).ready(function(){
             else if($('#amntgiven').val() === 0 || $('#amntgiven').val() < cartAmount){
                 alert("Not enough cash to complete transaction!");
             }
-            //if cart is not empty, posts the item IDs of all items sold to the database
+            //if cart is not empty and enough cash is given, posts the item IDs of all items sold to the database
             //the cartIds array stores duplicates, so we keep track of the count of each item
             else{
                 cash = $('#amntgiven').val();

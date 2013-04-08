@@ -1,16 +1,14 @@
-Lime Point of Sales
-===================
+#Lime Point of Sales
+###Null Pointer Productions:
+* Brandon Hurley, [student number]
+* Jasmin Mehic, 100793433
 
-Introduction
-------------
-
+##Introduction
 A point of sale is the place where a transaction takes place during the exchange of goods and services.  In the past this was generally the physical checkout counter of a store, but as the world transitions to an internet-based economy the point of sale has shifted from a physical, hardware location to an online location.  In order to facilitate these transactions, Null Pointer Productions will provide an online, cloud-based point of sale service to online and bricks and mortar merchants.  Our service will allow merchants to keep track of their inventory, process transactions and have access to their critical information from anywhere that has an internet connection.
 
 Our service will be superior to localized solutions such as Lemon POS because everything will be hosted and stored online, protecting vital information from local system crashes.  It will also provide a cleaner interface and more efficient backend using powerful web technologies.  Lime will use modern web technologies such as NodeJS to run the server and MongoDB to keep track of databases with a frontend client built using JavaScript and jQuery.
 
-Main Package Dependencies
--------------------------
-
+##Main Package Dependencies
 * [NodeJS](http://nodejs.org)
 * [ExpressJS](http://expressjs.com)
 * [MongoDB](http://mongodb.org)
@@ -18,8 +16,14 @@ Main Package Dependencies
 * [jQuery](http://jquery.com)
 * [jQuery UI](http://jqueryui.com)
 
-Milestones
-----------
+##Project Organization
+The docs folder contains documentation files for the project, including information on project architecture, files, dependencies, extensions, and project motivation. The lime folder contains the source code of the project, including both server and client side code.
+
+##Usage Information
+To run the project, clone the repository to your local machine and run "node app.js" in the lime/ directory. To connect to the service, go to localhost:3000 in any browser (UI and functionality testing was done on Firefox and Chrome; some aspects of the UI break on Chrome so for the best experiece, please use Firefox).
+To use the service, first create an account and then log in with your credentials. There is a link to help documentation included on the main account page of logged in users explaining different aspects of the service.
+
+##Milestones
 
 1. Architecture diagram and external libraries/programs (delivery: Feb 8)
   * high-level architecture diagram showing client and server layout

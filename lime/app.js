@@ -246,11 +246,11 @@ app.post("/checkout", function( req, res ){
 
 //post method for editing the inventory
 app.post("/savechanges", function( req, res ){
-	//get the item id of the edited item, along with new price and/or quantity
+	//get the item id of the edited item, along with new price and quantity
 	var itemId = req.body.itemId;
 	var newPrice = req.body.price;
 	var newQuantity = req.body.quantity;
-	//find the item based on id and update the price/quantity
+	//find the item based on id and update the price and quantity
 	Item.findOne({ item_id: itemId }, 'item_price item_quantity', function( err, doc ){
 		doc.item_price = newPrice;
 		doc.item_quantity = newQuantity;

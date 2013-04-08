@@ -8,7 +8,7 @@ A bcrypt library for NodeJS. Used to authenticate users.
 License: [MIT](https://github.com/ncb000gt/node.bcrypt.js/blob/master/LICENSE)
 
 ###connect-mongo
-MongoDB session store. Used to store database sessions.
+MongoDB session store. Used to store database and user sessions.
 
 License: MIT
 
