@@ -21,6 +21,9 @@ The main page of the web application. This page is where the user ends up when t
 ###views/create.ejs:
 Simple page to create an account with the service. Uses a basic form to post the new user's data to the server. Written in HTML with CSS for style.
 
+###views/help.ejs:
+Simple help page outlining how to use the service. Written in HTML with CSS for style.
+
 ###views/index.ejs:
 The main page that is rendered when a user is not logged in. Simple introduction to the web application with links in the top navigation bar to other pages. Written in HTML with CSS for style.
 
