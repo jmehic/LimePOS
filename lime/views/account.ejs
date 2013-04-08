@@ -24,7 +24,6 @@
                     <a class="brand" href="/">Lime</a>
                     <ul class="nav">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/about">About Lime</a></li>
                     </ul>
                 </div>
             </div>
@@ -35,12 +34,8 @@
                 <p>
                     Welcome to your account<br><br>
                     To access Lime's features, use the menu to the left.<br>
-                    If you need help, <a href="#">click here</a> to access the help documentation.<br>
-                    If you'd like an intro to the service, <a href="#">click here</a>.
+                    If you need help, <a href="/help">click here</a> to access the help documentation.<br>
                 </p>
-            <!--<form action="/logout" method="post">
-                <input type="submit" value="Log out"/>
-            </form>-->
             </div>
             <div class="dropdown btn-group">
                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -50,7 +45,7 @@
                 <ul class="dropdown-menu">
                     <li><a id="setup" href="#set">Set Up Inventory</a></li>
                     <li><a id="inv" href="#inventory">Inventory</a></li>
-                    <li><a id="tds" href="#stats">Today's Stats</a></li>
+                    <li><a id="tds" href="#stats">Accounting Stats</a></li>
                     <li><a id="gen" href="#report">Generate Report</a></li>
                     <li><a id="edit" href="#edit">Edit Inventory</a></li>
                     <li><a href="/logout">Log Out</a></li>
@@ -70,7 +65,6 @@
                     <input id="quantity" type="number" name="quantity"></input>
                     <input type="submit" value="Add item"/>
                 </form>
-                <!-- Add "dialog" to add an item to the database with its name, id, price etc. -->
             </div>
 
             <div class="inventory">
@@ -78,6 +72,11 @@
                 <div class="checkout-btn">
                     <label for="cart">Cart:</label>
                     <input style="width: 50px;" id="cart" type="text" name="cart" placeholder="$0.00"></input>
+                    <button style="float: right;" class="btn btn-primary" type="button" id="clearbtn">Clear cart</button>
+                </div>
+                <div class="amnt-given">
+                    <label for="amntgiven">Cash:</label>
+                    <input style="width: 50px;" id="amntgiven" type="text" name="amntgiven" placeholder="$0.00"></input>
                     <button style="float: right;" class="btn btn-primary" type="button" id="chckbtn">Checkout</button>
                 </div>
                 <div class="inventory-item">
@@ -85,15 +84,22 @@
             </div>
 
             <div class="stats">
-                <h3>Daily Statistics</h3>
-                <h4>Item Sold</h4>
+                <h3>Accounting Statistics</h3>
+                <h4>Items Sold</h4>
+                <p id="soldItems"></p>
                 <h4>Revenue</h4>
+                <p id="itemRevenue"></p>
                 <h4>Change Given</h4>
+                <p id="changeTracker"></p>
                 <h4>Total Profit</h4>
+                <p id="profitTracker"></p>
             </div>
 
             <div class="report">
                 <h3>Report of Daily Activity</h3>
+                <p>
+                    Coming soon
+                </p>
             </div>
 
             <div class="edit-inventory">

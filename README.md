@@ -8,6 +8,16 @@ A point of sale is the place where a transaction takes place during the exchange
 
 Our service will be superior to localized solutions such as Lemon POS because everything will be hosted and stored online, protecting vital information from local system crashes.  It will also provide a cleaner interface and more efficient backend using powerful web technologies.  Lime will use modern web technologies such as NodeJS to run the server and MongoDB to keep track of databases with a frontend client built using JavaScript and jQuery.
 
+Main Package Dependencies
+-------------------------
+
+* [NodeJS](http://nodejs.org)
+* [ExpressJS](http://expressjs.com)
+* [MongoDB](http://mongodb.org)
+* [Bootstrap](http://twitter.github.io/bootstrap/)
+* [jQuery](http://jquery.com)
+* [jQuery UI](http://jqueryui.com)
+
 Milestones
 ----------
 
