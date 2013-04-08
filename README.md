@@ -18,6 +18,14 @@ Main Package Dependencies
 * [jQuery](http://jquery.com)
 * [jQuery UI](http://jqueryui.com)
 
+Project Organization
+--------------------
+The docs folder contains documentation files for the project, including information on project architecture, files, dependencies, extensions, and project motivation. The lime folder contains the source code of the project, including both server and client side code.
+
+Usage Information
+-----------------
+To run the project, clone the repository to your local machine and run "node app.js" in the lime/ directory. To connect to the service, go to localhost:3000 in any browser (UI and functionality testing was done on Firefox and Chrome; some aspects of the UI break on Chrome so for the best experiece, please use Firefox).
+
 Milestones
 ----------
 
