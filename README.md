@@ -1,4 +1,7 @@
 #Lime Point of Sales
+###Null Pointer Productions:
+* Brandon Hurley, <student number>
+* Jasmin Mehic, 100793433
 
 ##Introduction
 A point of sale is the place where a transaction takes place during the exchange of goods and services.  In the past this was generally the physical checkout counter of a store, but as the world transitions to an internet-based economy the point of sale has shifted from a physical, hardware location to an online location.  In order to facilitate these transactions, Null Pointer Productions will provide an online, cloud-based point of sale service to online and bricks and mortar merchants.  Our service will allow merchants to keep track of their inventory, process transactions and have access to their critical information from anywhere that has an internet connection.
@@ -18,7 +21,7 @@ The docs folder contains documentation files for the project, including informat
 
 ##Usage Information
 To run the project, clone the repository to your local machine and run "node app.js" in the lime/ directory. To connect to the service, go to localhost:3000 in any browser (UI and functionality testing was done on Firefox and Chrome; some aspects of the UI break on Chrome so for the best experiece, please use Firefox).
-To use the service, first create an account and then log in with your credentials. There is help documentation included on the main account page of logged in users explaining different aspects of the service.
+To use the service, first create an account and then log in with your credentials. There is a link to help documentation included on the main account page of logged in users explaining different aspects of the service.
 
 ##Milestones
 
