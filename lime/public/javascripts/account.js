@@ -113,7 +113,7 @@ $(document).ready(function(){
                     <input id="price'+count+'" type="text" name="price"></input>\
                     <label for="quantity">Quantity:</label>\
                     <input id="quantity'+count+'" type="text" name="quantity"></input>\
-                    <button class="save-button btn btn-small btn-primary"\
+                    <button style="display: block;" class="save-button btn btn-small btn-primary"\
                     type="button" id="savebtn'+item.item_id+'">Save changes</button></p></div>');
                 $('#price'+count).val(item.item_price);
                 $('#quantity'+count).val(item.item_quantity);
