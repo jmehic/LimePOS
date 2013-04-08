@@ -24,6 +24,7 @@
                     <a class="brand" href="/">Lime</a>
                     <ul class="nav">
                     <li><a href="/">Home</a></li>
+                    <li><a href="/help">Help</a></li>
                     </ul>
                 </div>
             </div>
@@ -55,7 +56,7 @@
             <div class="setup">
                 <h3 class="setup-header">Set up Your Inventory</h3>
                 <form action="/additem" method="post">
-                    <label for="itemid">Item ID:</label>
+                    <label for="itemid">Item ID (must be unique):</label>
                     <input id="itemid" type="text" name="itemid"></input>
                     <label for="itemname">Item name:</label>
                     <input id="itemname" type="text" name="itemname"></input>
@@ -63,7 +64,7 @@
                     <input id="price" type="number" name="price"></input>
                     <label for="quantity">Item quantity:</label>
                     <input id="quantity" type="number" name="quantity"></input>
-                    <input type="submit" value="Add item"/>
+                    <input style="display: block;" type="submit" value="Add item"/>
                 </form>
             </div>
 
