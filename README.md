@@ -1,6 +1,6 @@
 #Lime Point of Sales
 ###Null Pointer Productions:
-* Brandon Hurley, <student number>
+* Brandon Hurley, [student number]
 * Jasmin Mehic, 100793433
 
 ##Introduction
