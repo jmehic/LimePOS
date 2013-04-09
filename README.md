@@ -1,6 +1,6 @@
 #Lime Point of Sales
 ###Null Pointer Productions:
-* Brandon Hurley, [student number]
+* Brandon Hurley, 100849259
 * Jasmin Mehic, 100793433
 
 ##Introduction
@@ -19,9 +19,12 @@ Our service will be superior to localized solutions such as Lemon POS because ev
 ##Project Organization
 The docs folder contains documentation files for the project, including information on project architecture, files, dependencies, extensions, and project motivation. The lime folder contains the source code of the project, including both server and client side code.
 
+##Installation
+To get the project, clone the repository to your local machine. To run the project, run "node app.js" from the lime/ directory. In case there are any missing dependencies, run "npm install -d" from the lime/ directory which should install the required dependencies listed in the package.json file.
+
 ##Usage Information
-To run the project, clone the repository to your local machine and run "node app.js" in the lime/ directory. To connect to the service, go to localhost:3000 in any browser (UI and functionality testing was done on Firefox and Chrome; some aspects of the UI break on Chrome so for the best experiece, please use Firefox).
-To use the service, first create an account and then log in with your credentials. There is a link to help documentation included on the main account page of logged in users explaining different aspects of the service.
+To connect to the service, go to localhost:3000 in any browser (UI and functionality testing was done on Firefox and Chrome; some aspects of the UI break on Chrome so for the best experiece, please use Firefox).
+To use the service, first create an account and then log in with your credentials. There is a link to help documentation included on the main account page of logged in users explaining different aspects of the service. Logging in for the first time may produce a noticeable delay as the server creates the database.
 
 ##Milestones
 

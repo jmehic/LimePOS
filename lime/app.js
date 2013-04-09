@@ -1,6 +1,7 @@
 
 /**
  * Module dependencies.
+ * Note: authentication and session management code adapted from the Authenticated Sessions tutorial
  */
 
 var express = require('express')
